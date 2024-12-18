@@ -20,23 +20,27 @@ servers:
     description: server
 components:
   securitySchemes:
-    noauthAuth:
-      type: http
-      scheme: noauth
     bearerAuth:
       type: http
       scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
 tags:
   - name: Client
   - name: Client > Blog
   - name: Client > Contact Us
   - name: Client > Event
+  - name: Client > Menu Category
+  - name: Client > Menu Item
   - name: Admin
   - name: Admin > Authentication
   - name: Admin > Sundown KTM Site Settings
   - name: Admin > Blog
   - name: Admin > Contact Us
   - name: Admin > Event
+  - name: Admin > Menu Category
+  - name: Admin > Menu Item
 paths:
   /api/blogs:
     get:
@@ -118,6 +122,208 @@ paths:
         - Client > Event
       summary: show single event
       parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/menu-category:
+    get:
+      tags:
+        - Client > Menu Category
+      summary: show all menu category list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/menu-category/{id}:
+    get:
+      tags:
+        - Admin > Menu Category
+      summary: show single menu category data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/menu-items:
+    get:
+      tags:
+        - Admin > Menu Item
+      summary: show all menu items
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+          example: Momo
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Menu Item
+      summary: store menu item
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                menu_category_id:
+                  type: integer
+                  example: '1'
+                menu_item_name:
+                  type: string
+                  example: Momo
+                price:
+                  type: integer
+                  example: '250'
+                ingredient:
+                  type: string
+                  example: Flour
+                description:
+                  type: string
+                  example: fdgdfg
+                item_image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/menu-items/{id}:
+    get:
+      tags:
+        - Admin > Menu Item
+      summary: show single menu item
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Menu Item
+      summary: update menu item
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                menu_category_id:
+                  type: integer
+                  example: '1'
+                menu_item_name:
+                  type: string
+                  example: Momo
+                price:
+                  type: integer
+                  example: '250'
+                ingredient:
+                  type: string
+                  example: Flour
+                description:
+                  type: string
+                  example: fdgdfg
+                item_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Menu Item
+      summary: delete menu item
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: id
           in: path
           schema:
@@ -524,6 +730,58 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/menu-category:
+    post:
+      tags:
+        - Admin > Menu Category
+      summary: store menu category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                category_name:
+                  type: string
+                  example: Desert
+                description:
+                  type: string
+                  example: ghgfh
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Menu Category
+      summary: show all category list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
       responses:
         '200':
           description: Successful response
