@@ -33,6 +33,9 @@ tags:
   - name: Client > Event
   - name: Client > Menu Category
   - name: Client > Menu Item
+  - name: Client > Booking
+  - name: Client > Subscription
+  - name: Client > Banner
   - name: Admin
   - name: Admin > Authentication
   - name: Admin > Sundown KTM Site Settings
@@ -41,6 +44,11 @@ tags:
   - name: Admin > Event
   - name: Admin > Menu Category
   - name: Admin > Menu Item
+  - name: Admin > Gallery
+  - name: Admin > Subscription
+  - name: Admin > Dashboard
+  - name: Admin > Email
+  - name: Admin > Banner
 paths:
   /api/blogs:
     get:
@@ -87,14 +95,19 @@ paths:
               properties:
                 name:
                   type: string
+                  example: Hancie Phago
                 email:
                   type: string
+                  example: hancie@gmail.com
                 mobile_no:
-                  type: string
+                  type: integer
+                  example: '9825915122'
                 subject:
                   type: string
+                  example: Hy
                 message:
                   type: string
+                  example: hy
       parameters:
         - name: Accept
           in: header
@@ -334,6 +347,116 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/favourite-menu-items:
+    get:
+      tags:
+        - Client > Menu Item
+      summary: favourite menu item
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/booking:
+    post:
+      tags:
+        - Client > Booking
+      summary: store booking data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: fgfg
+                email:
+                  type: string
+                  example: ghgh@gmail.com
+                mobile_no:
+                  type: integer
+                  example: '756768'
+                date:
+                  type: string
+                  example: '2023-02-20'
+                subject:
+                  type: string
+                  example: dfgdg
+                no_of_people:
+                  type: integer
+                  example: '2'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/subscription:
+    post:
+      tags:
+        - Client > Subscription
+      summary: store subscription
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: sfdgdg
+                email:
+                  type: string
+                  example: sdfsdg@gmail.com
+                mobile_no:
+                  type: integer
+                  example: '65467576'
+                dob:
+                  type: string
+                  example: '2023-02-10'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/banners:
+    get:
+      tags:
+        - Client > Banner
+      summary: show all banner
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -393,6 +516,27 @@ paths:
                   type: string
                 about_us_image:
                   type: string
+                pokhara_banner_image:
+                  type: string
+                  format: binary
+                about_banner_image:
+                  type: string
+                  format: binary
+                menu_banner_image:
+                  type: string
+                  format: binary
+                gallery_banner_image:
+                  type: string
+                  format: binary
+                event_banner_image:
+                  type: string
+                  format: binary
+                blog_banner_image:
+                  type: string
+                  format: binary
+                contact_banner_image:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -782,6 +926,391 @@ paths:
           schema:
             type: integer
           example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/menu-items/update-status/{id}:
+    post:
+      tags:
+        - Admin > Menu Item
+      summary: update menu popular status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: active
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/gallery:
+    post:
+      tags:
+        - Admin > Gallery
+      summary: store gallery images
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                gallery_title:
+                  type: string
+                  example: hy
+                images[]:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Gallery
+      summary: show all gallery images
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/gallery/{id}:
+    get:
+      tags:
+        - Admin > Gallery
+      summary: show single gallery album
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Gallery
+      summary: delete gallery images
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/subscription:
+    get:
+      tags:
+        - Admin > Subscription
+      summary: get all subscription list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+          example: hy
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/subscription/{id}:
+    delete:
+      tags:
+        - Admin > Subscription
+      summary: delete subscription
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/dashboard:
+    get:
+      tags:
+        - Admin > Dashboard
+      summary: dashboard
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/email:
+    post:
+      tags:
+        - Admin > Email
+      summary: send email
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                subject:
+                  type: string
+                  example: ghgh
+                message:
+                  type: string
+                  example: gjhgjh
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Email
+      summary: get all emails
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/banners:
+    post:
+      tags:
+        - Admin > Banner
+      summary: store banner
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                banner_title:
+                  type: string
+                  example: hello
+                image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Banner
+      summary: show all banners
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/banners/{id}:
+    post:
+      tags:
+        - Admin > Banner
+      summary: update banner
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                banner_title:
+                  type: string
+                  example: hello
+                image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Banner
+      summary: delete banner
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/banners/reorder:
+    post:
+      tags:
+        - Admin > Banner
+      summary: reorder banner
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                banners:
+                  - id: 1
+                    order: 3
+                  - id: 2
+                    order: 1
+                _method: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
