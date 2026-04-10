@@ -1,1465 +1,2375 @@
 {
-	"info": {
-		"_postman_id": "dc6986dd-c4ac-4304-9e44-e70efaccf74d",
-		"name": "Sundown",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "36246021",
-		"_collection_link": "https://mero-vision.postman.co/workspace/Team-Workspace~1395415a-98af-4bc5-853c-6265c2c2d0cd/collection/36246021-dc6986dd-c4ac-4304-9e44-e70efaccf74d?action=share&source=collection_link&creator=36246021"
-	},
-	"item": [
-		{
-			"name": "Client",
-			"item": [
-				{
-					"name": "Blog",
-					"item": [
-						{
-							"name": "show all blogs",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/blogs",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"blogs"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show single blog",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/blogs/{slug}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"blogs",
-										"{slug}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Contact Us",
-					"item": [
-						{
-							"name": "store contact us",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "name",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "mobile_no",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "subject",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "message",
-											"value": "",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/contact-us",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"contact-us"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Event",
-					"item": [
-						{
-							"name": "show all events",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/events",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"events"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show single event",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/events/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"events",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Menu Category",
-					"item": [
-						{
-							"name": "show all menu category list",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/menu-category",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"menu-category"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show single menu category data",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-category/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-category",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Menu Item",
-					"item": [
-						{
-							"name": "show all menu items",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-items?pagination_limit=10&search_keyword=Momo",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-items"
-									],
-									"query": [
-										{
-											"key": "pagination_limit",
-											"value": "10"
-										},
-										{
-											"key": "search_keyword",
-											"value": "Momo"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show single menu item",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-items/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-items",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Admin",
-			"item": [
-				{
-					"name": "Authentication",
-					"item": [
-						{
-							"name": "login",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"const response = pm.response.json()\r",
-											"pm.environment.set('token', response.data.token)\r",
-											"pm.environment.set('refresh_token', response.data.refresh_token)"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "email",
-											"value": "superadmin@gmail.com",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "password",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/login",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"login"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Sundown KTM Site Settings",
-					"item": [
-						{
-							"name": "store site settings",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "site_title",
-											"value": "Sundown by KTM",
-											"type": "text"
-										},
-										{
-											"key": "logo",
-											"type": "file",
-											"src": "/C:/Users/Hanci/Downloads/hyhhh.png"
-										},
-										{
-											"key": "email",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "phone_no",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "mobile_no",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "address",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "about_us",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "about_us_image",
-											"value": "",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/sundown-ktm-site-settings",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"sundown-ktm-site-settings"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show all site settings",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/sundown-ktm-site-settings",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"sundown-ktm-site-settings"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Blog",
-					"item": [
-						{
-							"name": "store blog",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "fdgdgh",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "fghfh",
-											"type": "text"
-										},
-										{
-											"key": "blog_image",
-											"type": "file",
-											"src": "/C:/Users/Hanci/Downloads/Blue Orange And White Modern LinkdIn Banner.png"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/admin/blogs",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"blogs"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show all blogs",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/blogs",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"blogs"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update blog details",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "blog_image",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "PUT",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/admin/blogs/{slug}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"blogs",
-										"{slug}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update blog status",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "status",
-											"value": "active",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/admin/blogs/update-status/{slug}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"blogs",
-										"update-status",
-										"{slug}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete blog",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/blogs/{slug}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"blogs",
-										"{slug}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Contact Us",
-					"item": [
-						{
-							"name": "show all contact us list",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/contact-us",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"contact-us"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete contact us",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/contact-us/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"contact-us",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Event",
-					"item": [
-						{
-							"name": "store event data",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "dfgfdg",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "dfgdg",
-											"type": "text"
-										},
-										{
-											"key": "date",
-											"value": "2023-01-20",
-											"type": "text"
-										},
-										{
-											"key": "time",
-											"value": "09:20 PM",
-											"type": "text"
-										},
-										{
-											"key": "event_image",
-											"type": "file",
-											"src": "/C:/Users/Hanci/Downloads/Blue Orange And White Modern LinkdIn Banner.png"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/admin/events",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"events"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show all event",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/events",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"events"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show single event",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/events/{slug}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"events",
-										"{slug}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show upcoming events",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/upcoming-events",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"upcoming-events"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "past events",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/past-events",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"past-events"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete event",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/events/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"events",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Menu Category",
-					"item": [
-						{
-							"name": "store menu category",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "category_name",
-											"value": "Desert",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "ghgfh",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/admin/menu-category",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-category"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show all category list",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-category?pagination_limit=10",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-category"
-									],
-									"query": [
-										{
-											"key": "pagination_limit",
-											"value": "10"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show single menu category data",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-category/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-category",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Menu Item",
-					"item": [
-						{
-							"name": "store menu item",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "menu_category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "menu_item_name",
-											"value": "Momo",
-											"type": "text"
-										},
-										{
-											"key": "price",
-											"value": "250",
-											"type": "text"
-										},
-										{
-											"key": "ingredient",
-											"value": "Flour",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "fdgdfg",
-											"type": "text"
-										},
-										{
-											"key": "item_image",
-											"type": "file",
-											"src": "/C:/Users/Hanci/Downloads/Purple and Yellow Modern Website Development Solution Instagram Post (1).png"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/admin/menu-items",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-items"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update menu item",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "menu_category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "menu_item_name",
-											"value": "Momo",
-											"type": "text"
-										},
-										{
-											"key": "price",
-											"value": "250",
-											"type": "text"
-										},
-										{
-											"key": "ingredient",
-											"value": "Flour",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "fdgdfg",
-											"type": "text"
-										},
-										{
-											"key": "item_image",
-											"type": "file",
-											"src": "/C:/Users/Hanci/Downloads/Purple and Yellow Modern Website Development Solution Instagram Post (1).png"
-										},
-										{
-											"key": "_method",
-											"value": "PUT",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/api/admin/menu-items/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-items",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show all menu items",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-items?pagination_limit=10&search_keyword=Momo",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-items"
-									],
-									"query": [
-										{
-											"key": "pagination_limit",
-											"value": "10"
-										},
-										{
-											"key": "search_keyword",
-											"value": "Momo"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show single menu item",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-items/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-items",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete menu item",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/api/admin/menu-items/{id}",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"menu-items",
-										"{id}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "dc6986dd-c4ac-4304-9e44-e70efaccf74d",
+    "name": "Sundown",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36246021",
+    "_collection_link": "https://go.postman.co/collection/36246021-dc6986dd-c4ac-4304-9e44-e70efaccf74d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Client",
+      "item": [
+        {
+          "name": "Blog",
+          "item": [
+            {
+              "name": "show all blogs",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/blogs",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "blogs"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single blog",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/api/blogs/{slug}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "blogs",
+                    "{slug}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Contact Us",
+          "item": [
+            {
+              "name": "store contact us",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Hancie Phago",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "hancie@gmail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "mobile_no",
+                      "value": "9825915122",
+                      "type": "text"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "Hy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "message",
+                      "value": "hy",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/contact-us",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "contact-us"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Event",
+          "item": [
+            {
+              "name": "show all events",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/api/events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single event",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/api/events/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Menu Category",
+          "item": [
+            {
+              "name": "show all menu category list",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/menu-category",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "menu-category"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single menu category data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-category/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-category",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Menu Item",
+          "item": [
+            {
+              "name": "show all menu items",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items?pagination_limit=10&search_keyword=Momo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": "Momo",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single menu item",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "favourite menu item",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/favourite-menu-items",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "favourite-menu-items"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Booking",
+          "item": [
+            {
+              "name": "store booking data",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "fgfg",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "ghgh@gmail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "mobile_no",
+                      "value": "756768",
+                      "type": "text"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2023-02-20",
+                      "type": "text"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "dfgdg",
+                      "type": "text"
+                    },
+                    {
+                      "key": "no_of_people",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "bdd0860c-b11c-47bc-805d-e6f32fa3d9f5"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/booking",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "booking"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Subscription",
+          "item": [
+            {
+              "name": "store subscription",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "sfdgdg",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "sdfsdg@gmail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "mobile_no",
+                      "value": "65467576",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dob",
+                      "value": "2023-02-10",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/subscription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "subscription"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Banner",
+          "item": [
+            {
+              "name": "show all banner",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/banners",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "banners"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Authentication",
+          "item": [
+            {
+              "name": "login",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "const response = pm.response.json()\r",
+                      "pm.environment.set('token', response.data.token)\r",
+                      "pm.environment.set('refresh_token', response.data.refresh_token)"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "email",
+                      "value": "superadmin@gmail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/login",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Sundown KTM Site Settings",
+          "item": [
+            {
+              "name": "store site settings",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "site_title",
+                      "value": "Sundown by KTM",
+                      "type": "text"
+                    },
+                    {
+                      "key": "logo",
+                      "type": "file",
+                      "fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+                      "filesNotInWorkingDirectory": [
+                        "/C:/Users/Hanci/Downloads/hyhhh.png"
+                      ],
+                      "src": "/C:/Users/Hanci/Downloads/hyhhh.png"
+                    },
+                    {
+                      "key": "email",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "phone_no",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "mobile_no",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "address",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "about_us",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "about_us_image",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "pokhara_banner_image",
+                      "type": "file",
+                      "uuid": "6eab518f-fbc6-4b64-8854-90a854f827b2",
+                      "value": null
+                    },
+                    {
+                      "key": "about_banner_image",
+                      "type": "file",
+                      "uuid": "0ce67660-b66c-4b57-906c-d7ad52168a17",
+                      "value": null
+                    },
+                    {
+                      "key": "menu_banner_image",
+                      "type": "file",
+                      "uuid": "c1caf322-a39a-43c4-9ccd-28b7ed27c124",
+                      "value": null
+                    },
+                    {
+                      "key": "gallery_banner_image",
+                      "type": "file",
+                      "uuid": "f838c02c-c456-4b7f-8d47-a8afe560e381",
+                      "value": null
+                    },
+                    {
+                      "key": "event_banner_image",
+                      "type": "file",
+                      "uuid": "1437bb1a-7911-4835-92f9-486d6d5bc715",
+                      "value": null
+                    },
+                    {
+                      "key": "blog_banner_image",
+                      "type": "file",
+                      "uuid": "95d6bf03-5c91-4a2e-9080-5d7d4baba47a",
+                      "value": null
+                    },
+                    {
+                      "key": "contact_banner_image",
+                      "type": "file",
+                      "uuid": "925d7b3d-fb60-4299-89b1-afbe093d9b65",
+                      "value": null
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/sundown-ktm-site-settings",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "sundown-ktm-site-settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all site settings",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/sundown-ktm-site-settings",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "sundown-ktm-site-settings"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Blog",
+          "item": [
+            {
+              "name": "store blog",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "fdgdgh",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "fghfh",
+                      "type": "text"
+                    },
+                    {
+                      "key": "blog_image",
+                      "type": "file",
+                      "src": "/C:/Users/Hanci/Downloads/Blue Orange And White Modern LinkdIn Banner.png"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/blogs",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "blogs"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all blogs",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/blogs",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "blogs"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update blog details",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "blog_image",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/blogs/{slug}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "blogs",
+                    "{slug}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update blog status",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "status",
+                      "value": "active",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/blogs/update-status/{slug}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "blogs",
+                    "update-status",
+                    "{slug}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete blog",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/blogs/{slug}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "blogs",
+                    "{slug}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Contact Us",
+          "item": [
+            {
+              "name": "show all contact us list",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/contact-us",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "contact-us"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete contact us",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/contact-us/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "contact-us",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Event",
+          "item": [
+            {
+              "name": "store event data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "dfgfdg",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "dfgdg",
+                      "type": "text"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2023-01-20",
+                      "type": "text"
+                    },
+                    {
+                      "key": "time",
+                      "value": "09:20 PM",
+                      "type": "text"
+                    },
+                    {
+                      "key": "event_image",
+                      "type": "file",
+                      "src": "/C:/Users/Hanci/Downloads/Blue Orange And White Modern LinkdIn Banner.png"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all event",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single event",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/events/{slug}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events",
+                    "{slug}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show upcoming events",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/upcoming-events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "upcoming-events"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "past events",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/past-events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "past-events"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete event",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/events/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Menu Category",
+          "item": [
+            {
+              "name": "store menu category",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "category_name",
+                      "value": "Desert",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "ghgfh",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-category",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-category"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all category list",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-category?pagination_limit=10",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-category"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": "10",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single menu category data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-category/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-category",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Menu Item",
+          "item": [
+            {
+              "name": "store menu item",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "menu_category_id",
+                      "value": "1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "menu_item_name",
+                      "value": "Momo",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "250",
+                      "type": "text"
+                    },
+                    {
+                      "key": "ingredient",
+                      "value": "Flour",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "fdgdfg",
+                      "type": "text"
+                    },
+                    {
+                      "key": "item_image",
+                      "type": "file",
+                      "src": "/C:/Users/Hanci/Downloads/Purple and Yellow Modern Website Development Solution Instagram Post (1).png"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update menu item",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "menu_category_id",
+                      "value": "1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "menu_item_name",
+                      "value": "Momo",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "250",
+                      "type": "text"
+                    },
+                    {
+                      "key": "ingredient",
+                      "value": "Flour",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "fdgdfg",
+                      "type": "text"
+                    },
+                    {
+                      "key": "item_image",
+                      "type": "file",
+                      "src": "/C:/Users/Hanci/Downloads/Purple and Yellow Modern Website Development Solution Instagram Post (1).png"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all menu items",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items?pagination_limit=10&search_keyword=Momo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": "Momo",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single menu item",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete menu item",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update menu popular status",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "status",
+                      "value": "active",
+                      "type": "text"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/menu-items/update-status/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "menu-items",
+                    "update-status",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Gallery",
+          "item": [
+            {
+              "name": "store gallery images",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "gallery_title",
+                      "value": "hy",
+                      "type": "text"
+                    },
+                    {
+                      "key": "images[]",
+                      "type": "file",
+                      "src": "/C:/Users/Hanci/Downloads/Mero Vision Internship Certificate .png"
+                    },
+                    {
+                      "key": "images[]",
+                      "type": "file",
+                      "src": "/C:/Users/Hanci/Downloads/Purple and Yellow Modern Website Development Solution Instagram Post (1).png"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/gallery",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "gallery"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all gallery images",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/gallery",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "gallery"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single gallery album",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/gallery/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "gallery",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete gallery images",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/gallery/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "gallery",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Subscription",
+          "item": [
+            {
+              "name": "get all subscription list",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/subscription?pagination_limit=5&search_keyword=hy",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "subscription"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": "5",
+                      "type": "text"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": "hy",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete subscription",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/subscription/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "subscription",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "item": [
+            {
+              "name": "dashboard",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/dashboard",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "dashboard"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Email",
+          "item": [
+            {
+              "name": "send email",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "subject",
+                      "value": "ghgh",
+                      "type": "text"
+                    },
+                    {
+                      "key": "message",
+                      "value": "gjhgjh",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/email",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "email"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all emails",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/email",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "email"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Banner",
+          "item": [
+            {
+              "name": "store banner",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "banner_title",
+                      "value": "hello",
+                      "type": "text",
+                      "uuid": "b604f06f-802e-44bb-8b51-42715f85e5a4"
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "uuid": "39928539-d670-4121-b256-2f6eb6d83e25",
+                      "src": "/C:/Users/user/Pictures/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/banners",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "banners"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update banner",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "banner_title",
+                      "value": "hello",
+                      "type": "text",
+                      "uuid": "b604f06f-802e-44bb-8b51-42715f85e5a4"
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "uuid": "39928539-d670-4121-b256-2f6eb6d83e25",
+                      "src": "/C:/Users/user/Pictures/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text",
+                      "uuid": "870a4040-5822-4920-b760-ca87df811e9e"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/banners/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "banners",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all banners",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/banners?pagination_limit=8",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "banners"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": "8",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "reorder banner",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"banners\": [\r\n    { \"id\": 1, \"order\": 3 },\r\n    { \"id\": 2, \"order\": 1 }\r\n  ],\r\n  \"_method\":\"PUT\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/banners/reorder",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "banners",
+                    "reorder"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete banner",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/banners/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "banners",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
